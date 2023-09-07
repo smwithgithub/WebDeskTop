@@ -1,0 +1,367 @@
+/*
+ * This file contains styling for the Main view.
+ */
+
+/*
+ * Generates a set of style rules for the "navigation" tab UI.
+ */
+@include extjs-tab-panel-ui(
+    $ui: 'navigation',
+    $ui-tab-background-color: transparent,
+    $ui-tab-background-color-over: #505050,
+    $ui-tab-background-color-active: #303030,
+    $ui-tab-background-gradient: 'none',
+    $ui-tab-background-gradient-over: 'none',
+    $ui-tab-background-gradient-active: 'none',
+    $ui-tab-color: #acacac,
+    $ui-tab-color-over: #c4c4c4,
+    $ui-tab-color-active: #fff,
+    $ui-tab-glyph-color: #acacac,
+    $ui-tab-glyph-color-over: #c4c4c4,
+    $ui-tab-glyph-color-active: #fff,
+    $ui-tab-glyph-opacity: 1,
+    $ui-tab-border-radius: 0,
+    $ui-tab-border-width: 0,
+    $ui-tab-inner-border-width: 0,
+    $ui-tab-padding: 24px,
+    $ui-tab-margin: 0,
+    $ui-tab-font-size: 15px,
+    $ui-tab-font-size-over: 15px,
+    $ui-tab-font-size-active: 15px,
+    $ui-tab-line-height: 19px,
+    $ui-tab-font-weight: bold,
+    $ui-tab-font-weight-over: bold,
+    $ui-tab-font-weight-active: bold,
+    $ui-tab-icon-width: 24px,
+    $ui-tab-icon-height: 24px,
+    $ui-tab-icon-spacing: 5px,
+    $ui-bar-background-color: #404040,
+    $ui-bar-background-gradient: 'none',
+    $ui-bar-padding: 0,
+    $ui-strip-height: 0
+);
+
+/*
+ * Generates a set of style rules for the "navigation" panel UI.
+ */
+@include extjs-panel-ui(
+    $ui: 'navigation',
+    $ui-header-color: #fff,
+    $ui-header-glyph-color: #fff,
+    $ui-header-glyph-opacity: 1,
+    $ui-header-font-size: 20px,
+    $ui-header-line-height: 24px,
+    $ui-header-font-weight: bold,
+    $ui-header-icon-height: 24px,
+    $ui-header-icon-width: 24px,
+    $ui-header-icon-spacing: 15px,
+    $ui-header-background-color: $base-color,
+    $ui-header-padding: 0,
+    $ui-header-text-margin: 36px,
+    $ui-header-noborder-adjust: false
+);
+
+.x-title-icon-navigation {
+    font-family: 'Font Awesome 5 Free';
+    color: #fff;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.x-tab-icon-el-navigation {
+    font-family: 'Font Awesome 5 Free';
+    color: #acacac;
+
+    .x-tab-over & {
+        color: #c4c4c4;
+    }
+
+    .x-tab-active & {
+        color: #fff;
+    }
+}
+
+.x-panel-header-title-navigation > .x-title-text-navigation:after {
+    top: 30px;
+    right: -24px;
+}
+
+// <new modified for desktop==================================================================================================
+.x-btn-inner-default-small {
+    font: 400 16px/18px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    color: #ffffff;
+    padding: 0 5px;
+    max-width: 100%;
+}
+// =======login button===========================
+#loginButton .x-btn-inner-default-small {
+    font: 400 16px/18px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    color: #000000;
+    padding: 0 5px;
+    max-width: 100%;
+}
+
+// login textfields===============================
+#emailField .x-form-item-label-default {
+    color: #d8d8d8;
+    font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    min-height: 32px;
+    padding-top: 8px;
+    padding-right: 5px;
+}
+
+#passwordField .x-form-item-label-default {
+    color: #d8d8d8;
+    font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    min-height: 32px;
+    padding-top: 8px;
+    padding-right: 5px;
+}
+
+// checkbox===============================
+#loginCheckBox .x-form-cb-label-default {
+    margin-top: 8px;
+    font: 300 13px/17px
+px
+ 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    color: #d4d4d4;
+}
+
+
+// ===========css for window==================================
+.x-window-header-default-top {
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 10px 14px 10px 14px;
+    border-width: 2px 2px 2px 2px;
+    border-style: solid;
+    background-color: #140e5f;
+}
+
+.x-window-default {
+    border-color: #87cefa;
+    -webkit-border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    -ms-border-radius: 0 0 0 0;
+    -o-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
+}
+
+.x-btn-default-small {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    padding: 7px 7px 7px 7px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #1c157e;
+    border-color: #87cefa;
+}
+
+.x-window-header-default .x-tool-img {
+    background-color: transparent;
+}
+
+#button .x-btn-inner-default-small {
+    font: 400 16px/18px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    color: #ffffff;
+    padding: 0 5px;
+    max-width: 100%;
+}
+
+// ===============css customize for window=================================================
+.studentWindow .x-tool-minimize {
+    background-color: transparent;
+    border: none;
+}
+
+.studentWindow .x-tool-maximize {
+    background-color: transparent;
+    border: none;
+}
+
+.studentWindow .x-tool-close {
+    background-color: transparent;
+    border: none;
+}
+
+.studentWindow .x-tool-restore {
+    background-color: transparent;
+    border: none;
+} //===============css customize ended for window=================================================
+
+
+//  ==============bbar css changing start======================
+.bbardesign {
+    background-color: #140e5f;
+    // background-color: #312d6c;
+}
+
+.windowsbtn{
+    background-color: transparent;
+}
+
+.windowsbtn:hover {
+    background-color: #24204d; 
+}
+
+.notification{
+    background-color: transparent;
+}
+
+.notification:hover {
+    background-color: #24204d; 
+    color: #fff;
+} //  ==============bbar css changing ended======================
+
+// student button css=============================
+#student .x-panel-header-default {
+    background-image: none;
+    background-color:transparent;
+}
+
+#student .x-title-text {
+    text-align: center;
+}
+
+#student .x-title{
+    height: 20px;
+}
+
+#student:hover{
+    background-color: transparent;
+}
+
+#student .x-panel-header-title-default {
+    color: #f0f0f0;
+    font-size: 10px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    line-height: 20px;
+}
+
+// teacher button css=========================================
+#teacher .x-panel-header-default {
+    background-image: none;
+    background-color:transparent;
+}
+
+#teacher .x-title-text {
+    text-align: center;
+}
+
+#teacher .x-title{
+    height: 20px;
+}
+
+#teacher:hover{
+    background-color: transparent;
+}
+
+#teacher .x-panel-header-title-default {
+    color: #f0f0f0;
+    font-size: 10px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    line-height: 20px;
+}
+
+// admin button css=========================================
+#admin .x-panel-header-default {
+    background-image: none;
+    background-color:transparent;
+}
+
+#admin .x-title-text {
+    text-align: center;
+}
+
+#admin .x-title{
+    height: 20px;
+}
+
+#admin:hover{
+    background-color: transparent;
+    
+}
+
+#admin .x-panel-header-title-default {
+    color: #f0f0f0;
+    font-size: 10px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    line-height: 20px;
+}
+
+// ========new button's css at bbar=====================
+.newStudentbtn{
+    background-color: transparent;
+}
+.newStudentbtn:hover {
+    background-color: #24204d; 
+}
+
+.newTeacher{
+    background-color: transparent;
+}
+.newTeacher:hover {
+    background-color: #24204d; 
+}
+
+// =============grid css changing=================================
+#studentlist .x-panel-header-default {
+    background-image: none;
+    background-color: #2a2473;
+}
+
+#teacherlist .x-panel-header-default {
+    background-image: none;
+    background-color: #2a2473;
+}
+
+#resentstudentlist .x-panel-header-default {
+    background-image: none;
+    background-color: #2a2473;
+}
+
+// popup windows window
+#popupwindows .x-window-header-default {
+    font-size: 16px;
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+#popupwindows .x-window-header-default-top {
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 10px 14px 10px 14px;
+    border-width: 2px 2px 2px 2px;
+    border-style: solid;
+    background-color: transparent;
+  }
+
+
+
+// new modified for desktop=================================================================================================/>
