@@ -62,52 +62,61 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
             listeners: {
                 render: function (panel) {
                         panel.getEl().on('click', function () {
-                        // Open the window
-                            var myWindow = Ext.create('Ext.window.Window', {
-                            title: 'STUDENT MODULE',
-                            width: 700,
-                            height: 500,
-                            scrollable: true,
-                            bodyPadding: 10,
-                            maximizable: true, 
-                            minimizable: true, 
-                            closable: true,
-                            layout:'column',
-                            items: [
-                                {
-                                    xtype:'studentlist',
-                                    columnWidth: 1,
-                                }
-                            ],
-                            listeners: {
-                                minimize: function(window) {
-                                    window.hide();
-                                },
-                                close: function(window) {
-                                    var newStudentbtn = Ext.getCmp('newStudentbtn');
-                                    var myToolbar = Ext.getCmp('newBtnForm');
-                                        myToolbar.remove(newStudentbtn);
-                                }
-                            }
-                        });
-                        var myToolbar = Ext.getCmp('newBtnForm');
-                                    // When the window is minimized, add a button or text to your toolbar
-                                    minimizeButton=myToolbar.add({
-                                        xtype: 'button',
-                                        margin:'0 0 0 10',
-                                        cls:'newStudentbtn',
-                                        id:'newStudentbtn',
-                                        text: 'STUDENT',
-                                        style:{
-                                            backgroundColor:'transparent'
-                                        },
-                                        handler: function() {
-                                            myWindow.show();
-                                            // myToolbar.remove(minimizeButton);
+                            
+                            var existingWindow = Ext.getCmp('studentWindow');
+
+                            if(!existingWindow){
+                                // Open the window
+                                var myWindow = Ext.create('Ext.window.Window', {
+                                    title: 'STUDENT MODULE',
+                                    width: 700,
+                                    height: 500,
+                                    scrollable: true,
+                                    bodyPadding: 10,
+                                    maximizable: true, 
+                                    minimizable: true, 
+                                    id:'studentWindow',
+                                    closable: true,
+                                    layout:'column',
+                                    items: [
+                                        {
+                                            xtype:'studentlist',
+                                            columnWidth: 1,
                                         }
-                                    });
+                                    ],
+                                    listeners: {
+                                        minimize: function(window) {
+                                            window.hide();
+                                        },
+                                        close: function(window) {
+                                            var newStudentbtn = Ext.getCmp('newStudentbtn');
+                                            var myToolbar = Ext.getCmp('newBtnForm');
+                                                myToolbar.remove(newStudentbtn);
+                                        }
+                                    }
+                                });
+                                var myToolbar = Ext.getCmp('newBtnForm');
+                                            // When the window is minimized, add a button or text to your toolbar
+                                            minimizeButton=myToolbar.add({
+                                                xtype: 'button',
+                                                margin:'0 0 0 10',
+                                                cls:'newStudentbtn',
+                                                id:'newStudentbtn',
+                                                text: 'STUDENT',
+                                                style:{
+                                                    backgroundColor:'transparent'
+                                                },
+                                                handler: function() {
+                                                    myWindow.show();
+                                                    // myToolbar.remove(minimizeButton);
+                                                }
+                                            });
+                                    myWindow.show();
+                            }
+                            else{
+                                existingWindow.show();
+                            }
                         
-                        myWindow.show();
                     });
                 }
             }
@@ -147,52 +156,60 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
             listeners: {
                 render: function (panel) {
                         panel.getEl().on('click', function () {
+
+                            var existingWindow = Ext.getCmp('teacherWindow');
+                            if(!existingWindow){
                         // Open the window
-                            var myWindow = Ext.create('Ext.window.Window', {
-                            title: 'TEACHERS MODULE',
-                            width: 700,
-                            height: 500,
-                            scrollable: true,
-                            bodyPadding: 10,
-                            maximizable: true, 
-                            minimizable: true, 
-                            closable: true,
-                            layout:'column',
-                            items: [
-                                {
-                                    xtype:'teacherlist',
-                                    columnWidth: 1,
-                                    
+                                var myWindow = Ext.create('Ext.window.Window', {
+                                title: 'TEACHERS MODULE',
+                                width: 700,
+                                height: 500,
+                                scrollable: true,
+                                bodyPadding: 10,
+                                id:'teacherWindow',
+                                maximizable: true, 
+                                minimizable: true, 
+                                closable: true,
+                                layout:'column',
+                                items: [
+                                    {
+                                        xtype:'teacherlist',
+                                        columnWidth: 1,
+                                        
+                                    }
+                                ],
+                                listeners: {
+                                    minimize: function(window) {
+                                        window.hide();
+                                    },
+                                    close: function(window) {
+                                        var newTeacherbtn = Ext.getCmp('newTeacherbtn');
+                                        var myToolbar = Ext.getCmp('newBtnForm');
+                                            myToolbar.remove(newTeacherbtn);
+                                    }
                                 }
-                            ],
-                            listeners: {
-                                minimize: function(window) {
-                                    window.hide();
-                                },
-                                close: function(window) {
-                                    var newTeacherbtn = Ext.getCmp('newTeacherbtn');
-                                    var myToolbar = Ext.getCmp('newBtnForm');
-                                        myToolbar.remove(newTeacherbtn);
-                                }
-                            }
-                        });
-                        var myToolbar = Ext.getCmp('newBtnForm');
-                                    // When the window is minimized, add a button or text to your toolbar
-                                    minimizeButton=myToolbar.add({
-                                        xtype: 'button',
-                                        margin:'0 0 0 10',
-                                        cls:'newTeacherbtn',
-                                        id:'newTeacherbtn',
-                                        text: 'TEACHER',
-                                        style:{
-                                            backgroundColor:'transparent'
-                                        },
-                                        handler: function() {
-                                            myWindow.show();
-                                        }
-                                    });
-                        
-                        myWindow.show();
+                            });
+                            var myToolbar = Ext.getCmp('newBtnForm');
+                                        // When the window is minimized, add a button or text to your toolbar
+                                        minimizeButton=myToolbar.add({
+                                            xtype: 'button',
+                                            margin:'0 0 0 10',
+                                            cls:'newTeacherbtn',
+                                            id:'newTeacherbtn',
+                                            text: 'TEACHER',
+                                            style:{
+                                                backgroundColor:'transparent'
+                                            },
+                                            handler: function() {
+                                                myWindow.show();
+                                            }
+                                        });
+                            
+                            myWindow.show();
+                        }
+                        else{
+                            existingWindow.show();
+                        }
                     });
                 }
             }
@@ -232,51 +249,59 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
             listeners: {
                 render: function (panel) {
                         panel.getEl().on('click', function () {
+
+                            var existingWindow = Ext.getCmp('adminWindow');
+                            if(!existingWindow){
                         // Open the window
-                            var myWindow = Ext.create('Ext.window.Window', {
-                            title: 'ADMIN MODULE',
-                            width: 700,
-                            height: 500,
-                            scrollable: true,
-                            bodyPadding: 10,
-                            maximizable: true, 
-                            minimizable: true, 
-                            closable: true,
-                            layout:'column',
-                            items: [
-                                {
-                                    xtype:'adminpanel',
-                                    columnWidth: 1,
+                                var myWindow = Ext.create('Ext.window.Window', {
+                                title: 'ADMIN MODULE',
+                                width: 700,
+                                height: 500,
+                                id:'adminWindow',
+                                scrollable: true,
+                                bodyPadding: 10,
+                                maximizable: true, 
+                                minimizable: true, 
+                                closable: true,
+                                layout:'column',
+                                items: [
+                                    {
+                                        xtype:'adminpanel',
+                                        columnWidth: 1,
+                                    }
+                                ],
+                                listeners: {
+                                    minimize: function(window) {
+                                        window.hide();
+                                    },
+                                    close: function(window) {
+                                        var newAdminbtn = Ext.getCmp('newAdminbtn');
+                                        var myToolbar = Ext.getCmp('newBtnForm');
+                                            myToolbar.remove(newAdminbtn);
+                                    }
                                 }
-                            ],
-                            listeners: {
-                                minimize: function(window) {
-                                    window.hide();
-                                },
-                                close: function(window) {
-                                    var newAdminbtn = Ext.getCmp('newAdminbtn');
-                                    var myToolbar = Ext.getCmp('newBtnForm');
-                                        myToolbar.remove(newAdminbtn);
-                                }
-                            }
-                        });
-                        var myToolbar = Ext.getCmp('newBtnForm');
-                                    // When the window is minimized, add a button or text to your toolbar
-                                    minimizeButton=myToolbar.add({
-                                        xtype: 'button',
-                                        margin:'0 0 0 10',
-                                        cls:'newAdminbtn',
-                                        id:'newAdminbtn',
-                                        text: 'ADMIN',
-                                        style:{
-                                            backgroundColor:'transparent'
-                                        },
-                                        handler: function() {
-                                            myWindow.show();
-                                        }
-                                    });
-                        
-                        myWindow.show();
+                            });
+                            var myToolbar = Ext.getCmp('newBtnForm');
+                                        // When the window is minimized, add a button or text to your toolbar
+                                        minimizeButton=myToolbar.add({
+                                            xtype: 'button',
+                                            margin:'0 0 0 10',
+                                            cls:'newAdminbtn',
+                                            id:'newAdminbtn',
+                                            text: 'ADMIN',
+                                            style:{
+                                                backgroundColor:'transparent'
+                                            },
+                                            handler: function() {
+                                                myWindow.show();
+                                            }
+                                        });
+                            
+                            myWindow.show();
+                        }
+                        else{
+                            existingWindow.show();
+                        }
                     });
                 }
             }

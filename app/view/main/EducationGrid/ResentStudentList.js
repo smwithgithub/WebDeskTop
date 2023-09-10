@@ -1,4 +1,4 @@
-Ext.define('SMDESKTOP.view.main.EducationGrid.StudentList', {
+Ext.define('SMDESKTOP.view.main.EducationGrid.ResentStudentList', {
     extend: 'Ext.grid.Panel',
     xtype: 'resentstudentlist',
 
