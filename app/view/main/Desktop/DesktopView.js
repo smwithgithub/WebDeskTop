@@ -17,7 +17,7 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
 
     ui: 'navigation',
     layout:'column',
-
+    id:'desktopView',
     bodyStyle:{
         'background-image':'url(resources/images/background2.jpg)',
         'backgroundSize': '100% 100%',
@@ -64,7 +64,7 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                         panel.getEl().on('click', function () {
                             
                             var existingWindow = Ext.getCmp('studentWindow');
-
+                            var desktopView = Ext.getCmp('desktopView');
                             if(!existingWindow){
                                 // Open the window
                                 var myWindow = Ext.create('Ext.window.Window', {
@@ -85,15 +85,25 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                                         }
                                     ],
                                     listeners: {
+                                        // hide the window by clicking minimize button
                                         minimize: function(window) {
                                             window.hide();
                                         },
+                                        // close the window by clicking minimize button
                                         close: function(window) {
                                             var newStudentbtn = Ext.getCmp('newStudentbtn');
                                             var myToolbar = Ext.getCmp('newBtnForm');
                                                 myToolbar.remove(newStudentbtn);
-                                        }
-                                    }
+                                        },
+                                        // leave the toolbar height and maximize the window
+                                        maximize: function(window) {
+                                            var bbarHeight = desktopView.query('toolbar[dock="bottom"]')[0].getHeight();
+                                            var windowHeight = window.getHeight();
+                                            window.setHeight(windowHeight-bbarHeight);
+                                            
+                                        },
+   
+                                    },
                                 });
                                 var myToolbar = Ext.getCmp('newBtnForm');
                                             // When the window is minimized, add a button or text to your toolbar
@@ -107,8 +117,16 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                                                     backgroundColor:'transparent'
                                                 },
                                                 handler: function() {
-                                                    myWindow.show();
-                                                    // myToolbar.remove(minimizeButton);
+                                                    if(myWindow.isHidden()){
+                                                        // leave the toolbar height and show the window
+                                                        myWindow.show();
+                                                        var bbarHeight = desktopView.query('toolbar[dock="bottom"]')[0].getHeight();
+                                                        var windowHeight = myWindow.getHeight();
+                                                        myWindow.setHeight(windowHeight-bbarHeight);
+                                                    }else{
+                                                        myWindow.hide();
+                                                    }
+                                                    
                                                 }
                                             });
                                     myWindow.show();
@@ -158,6 +176,8 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                         panel.getEl().on('click', function () {
 
                             var existingWindow = Ext.getCmp('teacherWindow');
+                            var desktopView = Ext.getCmp('desktopView');
+
                             if(!existingWindow){
                         // Open the window
                                 var myWindow = Ext.create('Ext.window.Window', {
@@ -179,14 +199,23 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                                     }
                                 ],
                                 listeners: {
+                                    // hide the window by clicking minimize button
                                     minimize: function(window) {
                                         window.hide();
                                     },
+                                    // close the window by clicking minimize button
                                     close: function(window) {
                                         var newTeacherbtn = Ext.getCmp('newTeacherbtn');
                                         var myToolbar = Ext.getCmp('newBtnForm');
                                             myToolbar.remove(newTeacherbtn);
-                                    }
+                                    },
+                                    // leave the toolbar height and maximize the window
+                                    maximize: function(window) {
+                                        var bbarHeight = desktopView.query('toolbar[dock="bottom"]')[0].getHeight();
+                                        var windowHeight = window.getHeight();
+                                        window.setHeight(windowHeight-bbarHeight);
+                                        
+                                    },
                                 }
                             });
                             var myToolbar = Ext.getCmp('newBtnForm');
@@ -201,7 +230,16 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                                                 backgroundColor:'transparent'
                                             },
                                             handler: function() {
-                                                myWindow.show();
+                                                if(myWindow.isHidden()){
+                                                    myWindow.show();
+                                                    // leave the toolbar height and show the window
+                                                    var bbarHeight = desktopView.query('toolbar[dock="bottom"]')[0].getHeight();
+                                                    var windowHeight = myWindow.getHeight();
+                                                    myWindow.setHeight(windowHeight-bbarHeight);
+                                                }else{
+                                                    myWindow.hide();
+                                                }
+                                                
                                             }
                                         });
                             
@@ -251,6 +289,8 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                         panel.getEl().on('click', function () {
 
                             var existingWindow = Ext.getCmp('adminWindow');
+                            var desktopView = Ext.getCmp('desktopView');
+
                             if(!existingWindow){
                         // Open the window
                                 var myWindow = Ext.create('Ext.window.Window', {
@@ -271,14 +311,23 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                                     }
                                 ],
                                 listeners: {
+                                    // hide the window by clicking minimize button
                                     minimize: function(window) {
                                         window.hide();
                                     },
+                                    // close the window by clicking minimize button
                                     close: function(window) {
                                         var newAdminbtn = Ext.getCmp('newAdminbtn');
                                         var myToolbar = Ext.getCmp('newBtnForm');
                                             myToolbar.remove(newAdminbtn);
-                                    }
+                                    },
+                                    // leave the toolbar height and maximize the window
+                                    maximize: function(window) {
+                                        var bbarHeight = desktopView.query('toolbar[dock="bottom"]')[0].getHeight();
+                                        var windowHeight = window.getHeight();
+                                        window.setHeight(windowHeight-bbarHeight);
+                                        
+                                    },
                                 }
                             });
                             var myToolbar = Ext.getCmp('newBtnForm');
@@ -293,7 +342,16 @@ Ext.define('SMDESKTOP.view.main.Desktop.DesktopView', {
                                                 backgroundColor:'transparent'
                                             },
                                             handler: function() {
-                                                myWindow.show();
+                                                if(myWindow.isHidden()){
+                                                    myWindow.show();
+                                                    // leave the toolbar height and show the window
+                                                    var bbarHeight = desktopView.query('toolbar[dock="bottom"]')[0].getHeight();
+                                                    var windowHeight = myWindow.getHeight();
+                                                    myWindow.setHeight(windowHeight-bbarHeight);
+                                                }else{
+                                                    myWindow.hide();
+                                                }
+                                                
                                             }
                                         });
                             
